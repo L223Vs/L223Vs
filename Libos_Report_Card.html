@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dire Beth-el Primary & secondary School</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles for Inter font and general body styling */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #A9A9A9; /* Changed to a slightly darker gray background */
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Align to the top */
+            min-height: 100vh;
+            padding: 2rem; /* Add some padding around the content */
+        }
+        /* Ensure table is responsive */
+        .table-container {
+            overflow-x: auto; /* Enable horizontal scrolling on small screens */
+            width: 100%;
+        }
+        table {
+            min-width: 768px; /* Ensure table has a minimum width on smaller screens */
+        }
+        /* New font for the main title */
+        h1 {
+            font-family: "New Century Schoolbook", "TeX Gyre Schola", serif;
+        }
+    </style>
+</head>
+<body class="p-4">
+    <div class="max-w-4xl w-full bg-white shadow-lg rounded-lg p-6 md:p-8 relative">
+        <img src="photo_2025-05-30_20-36-55-removebg-preview.png" alt="School Stamp" class="absolute bottom-4 right-4 w-100 h-100 object-contain">
+
+        <h1 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-6">Dire Beth-el Primary & secondary School</h1>
+		<h1 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-6">Students Report Card</h1>
+
+        <div class="mb-6 flex items-center justify-center md:justify-start">
+            <img src="gurd.png" alt="Student Photo" class="w-20 h-20 rounded-full mr-4 object-cover">
+            <div>
+                <p class="text-lg font-semibold text-gray-700">Name: Liban Ahmed Hassen</p>
+                <p class="text-lg font-semibold text-gray-700 inline-block mr-4">Grade: 11th</p>
+                <p class="text-lg font-semibold text-gray-700 inline-block">Sex: M</p>
+                <p class="text-lg font-semibold text-gray-700">Student ID no: 11/27</p>
+            </div>
+        </div>
+
+        <div class="table-container">
+            <table class="w-full border-collapse text-sm md:text-base">
+                <thead>
+                    <tr class="bg-blue-600 text-white">
+                        <th class="py-3 px-4 text-left rounded-tl-lg">Subject</th>
+                        <th class="py-3 px-4 text-center">Semester 1</th>
+                        <th class="py-3 px-4 text-center">Semester 2</th>
+                        <th class="py-3 px-4 text-center">Semester 3</th>
+                        <th class="py-3 px-4 text-center">Semester 4</th>
+                        <th class="py-3 px-4 text-center">Total</th>
+                        <th class="py-3 px-4 text-center rounded-tr-lg">Average</th>
+                    </tr>
+                </thead>
+                <tbody id="reportCardBody">
+                    </tbody>
+                <tfoot>
+                    <tr class="bg-gray-100 font-semibold text-gray-700">
+                        <td class="py-3 px-4 text-left">Semester Totals</td>
+                        <td id="sem1Total" class="py-3 px-4 text-center"></td>
+                        <td id="sem2Total" class="py-3 px-4 text-center"></td>
+                        <td id="sem3Total" class="py-3 px-4 text-center"></td>
+                        <td id="sem4Total" class="py-3 px-4 text-center"></td>
+                        <td colspan="2" class="py-3 px-4 text-center"></td> </tr>
+                    <tr class="bg-gray-100 font-semibold text-gray-700">
+                        <td class="py-3 px-4 text-left">Semester Averages</td>
+                        <td id="sem1Average" class="py-3 px-4 text-center"></td>
+                        <td id="sem2Average" class="py-3 px-4 text-center"></td>
+                        <td id="sem3Average" class="py-3 px-4 text-center"></td>
+                        <td id="sem4Average" class="py-3 px-4 text-center"></td>
+                        <td colspan="2" class="py-3 px-4 text-center"></td> </tr>
+                    <tr class="bg-gray-200 font-bold text-gray-800">
+                        <td class="py-3 px-4 text-left rounded-bl-lg">Overall Total</td>
+                        <td colspan="4" class="py-3 px-4 text-center"></td>
+                        <td id="overallTotal" class="py-3 px-4 text-center"></td>
+                        <td class="py-3 px-4 text-center rounded-br-lg"></td>
+                    </tr>
+                    <tr class="bg-gray-200 font-bold text-gray-800">
+                        <td class="py-3 px-4 text-left rounded-bl-lg">Overall Average</td>
+                        <td colspan="4" class="py-3 px-4 text-center"></td>
+                        <td class="py-3 px-4 text-center"></td>
+                        <td id="overallAverage" class="py-3 px-4 text-center rounded-br-lg"></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+
+        <p class="text-center text-gray-600 mt-8 text-sm">
+            Made by Visual studio
+        </p>
+    </div>
+
+    <script>
+        // Define your subjects and placeholder grades (0-100 scale)
+        // The fourth semester grades are set to null to indicate they are blank.
+        // For non-numerical grades like 'Conduct' or 'Rank', set a flag 'isNumerical: false'
+        const subjects = [
+            { name: 'Mathematics', grades: [53, 60, 60, null], isNumerical: true },
+            { name: 'English', grades: [82, 83, 82, null], isNumerical: true },
+            { name: 'Physics', grades: [75, 60, 68, null], isNumerical: true },
+            { name: 'Biology', grades: [65, 81, 75, null], isNumerical: true },
+            { name: 'CTE', grades: [80, 81, 70, null], isNumerical: true },
+            { name: 'Agriculture', grades: [74, 72, 77, null], isNumerical: true },
+            { name: 'Computer Science', grades: [97, 96, 99, null], isNumerical: true },
+            { name: 'Chemistry', grades: [46, 57, 61, null], isNumerical: true },
+            { name: 'Conduct', grades: ['B', 'A', 'B', null], isNumerical: false },
+            { name: 'Rank', grades: [34, 30, 28, null], isNumerical: false } // Added Rank subject
+        ];
+
+        const reportCardBody = document.getElementById('reportCardBody');
+        let overallTotalSum = 0;
+        let overallGradeCount = 0;
+
+        // Arrays to store totals and counts for each semester
+        const semesterTotals = [0, 0, 0, 0];
+        const semesterCounts = [0, 0, 0, 0];
+
+        // Function to calculate total and average for a subject
+        function calculateSubjectStats(grades, isNumerical) {
+            if (!isNumerical) {
+                return { total: '-', average: '-' }; // Return dashes for non-numerical subjects
+            }
+            // Filter out null values so they don't affect the sum or count for average
+            const validGrades = grades.filter(grade => grade !== null && typeof grade === 'number');
+            const total = validGrades.reduce((sum, grade) => sum + grade, 0);
+            // Ensure we don't divide by zero if there are no valid grades
+            const average = validGrades.length > 0 ? total / validGrades.length : 0;
+            return { total, average };
+        }
+
+        // Populate the table with subject data and accumulate semester totals/counts
+        subjects.forEach((subject, index) => {
+            const { total, average } = calculateSubjectStats(subject.grades, subject.isNumerical);
+
+            const row = document.createElement('tr');
+            row.classList.add(index % 2 === 0 ? 'bg-gray-50' : 'bg-white', 'hover:bg-gray-100');
+
+            // Subject Name
+            const subjectNameCell = document.createElement('td');
+            subjectNameCell.classList.add('py-3', 'px-4', 'text-left', 'font-medium', 'text-gray-900', 'border-b', 'border-gray-200');
+            subjectNameCell.textContent = subject.name;
+            subjectNameCell.classList.add('font-bold'); // Make subject name bold
+            row.appendChild(subjectNameCell);
+
+            // Semester Grades
+            subject.grades.forEach((grade, semIndex) => {
+                const gradeCell = document.createElement('td');
+                gradeCell.classList.add('py-3', 'px-4', 'text-center', 'text-gray-700', 'border-b', 'border-gray-200');
+
+                // Apply red color if grade is numerical and under 60
+                if (subject.isNumerical && grade !== null && grade < 60) {
+                    gradeCell.classList.add('text-red-600', 'font-bold');
+                }
+
+                // Display empty string for null grades, otherwise display the grade
+                gradeCell.textContent = grade !== null ? grade : '';
+                row.appendChild(gradeCell);
+
+                // Accumulate semester totals and counts only for numerical grades
+                if (subject.isNumerical && grade !== null) {
+                    semesterTotals[semIndex] += grade;
+                    semesterCounts[semIndex]++;
+                }
+            });
+
+            // Subject Total
+            const totalCell = document.createElement('td');
+            totalCell.classList.add('py-3', 'px-4', 'text-center', 'font-semibold', 'text-blue-700', 'border-b', 'border-gray-200');
+            totalCell.textContent = total;
+            row.appendChild(totalCell);
+
+            // Subject Average
+            const averageCell = document.createElement('td');
+            averageCell.classList.add('py-3', 'px-4', 'text-center', 'font-semibold', 'text-green-700', 'border-b', 'border-gray-200');
+            averageCell.textContent = typeof average === 'number' ? average.toFixed(2) : average; // Display average with 2 decimal places or '-'
+            row.appendChild(averageCell);
+
+            reportCardBody.appendChild(row);
+        });
+
+        // Recalculate overall total and average based on only valid numerical grades
+        overallTotalSum = 0; // Reset for recalculation
+        overallGradeCount = 0; // Reset for recalculation
+        subjects.forEach(subject => {
+            if (subject.isNumerical) {
+                const validGrades = subject.grades.filter(grade => grade !== null && typeof grade === 'number');
+                overallTotalSum += validGrades.reduce((sum, grade) => sum + grade, 0);
+                overallGradeCount += validGrades.length;
+            }
+        });
+
+        // Calculate and display overall total and average
+        const overallTotalElement = document.getElementById('overallTotal');
+        const overallAverageElement = document.getElementById('overallAverage');
+
+        overallTotalElement.textContent = overallTotalSum;
+        overallAverageElement.textContent = overallGradeCount > 0 ? (overallTotalSum / overallGradeCount).toFixed(2) : '0.00';
+
+        // Populate semester totals and averages
+        for (let i = 0; i < 4; i++) {
+            document.getElementById(`sem${i + 1}Total`).textContent = semesterTotals[i];
+            const semesterAverage = semesterCounts[i] > 0 ? (semesterTotals[i] / semesterCounts[i]).toFixed(2) : '0.00';
+            document.getElementById(`sem${i + 1}Average`).textContent = semesterAverage;
+        }
+    </script>
+</body>
+</html>

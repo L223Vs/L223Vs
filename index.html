@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dire Beth-el Primary & Secondary School</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google Fonts & Font Awesome for icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #3c59c2;
+            --secondary: #5c5c5c;
+            --accent: #ffd600;
+            --light: #fff;
+        }
+        body {
+            margin: 0;
+            font-family: 'Montserrat', Arial, sans-serif;
+            background: var(--secondary);
+            color: var(--light);
+        }
+        header {
+            position: relative;
+            height: 55vh;
+            min-height: 340px;
+            background: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: var(--light);
+            animation: fadeInDown 1.2s;
+        }
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-40px);}
+            to { opacity: 1; transform: translateY(0);}
+        }
+        .intro {
+            font-size: 2.8rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+            color: var(--accent);
+            text-shadow: 0 2px 8px rgba(0,0,0,0.18);
+        }
+        .school-name {
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin-bottom: 1.5rem;
+        }
+        nav {
+            margin-top: 1.5rem;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+        nav a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            transition: background 0.2s, color 0.2s;
+            position: relative;
+        }
+        nav a.active, nav a:hover {
+            background: var(--accent);
+            color: var(--secondary);
+        }
+        .search-bar-container {
+            margin-top: 1.2rem;
+            display: flex;
+            justify-content: center;
+        }
+        .search-bar-form {
+            display: flex;
+            max-width: 400px;
+            width: 100%;
+        }
+        .search-bar-input {
+            flex: 1;
+            padding: 0.6rem 1rem;
+            border-radius: 20px 0 0 20px;
+            border: none;
+            font-size: 1rem;
+        }
+        .search-bar-btn {
+            background: var(--accent);
+            color: var(--secondary);
+            border: none;
+            border-radius: 0 20px 20px 0;
+            padding: 0 1.2rem;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s;
+        }
+        .search-bar-btn:hover {
+            background: #ffe066;
+            color: var(--primary);
+        }
+        main {
+            max-width: 1100px;
+            margin: -70px auto 0 auto;
+            padding: 0 1.5rem;
+        }
+        .card {
+            background: rgba(255,255,255,0.10);
+            backdrop-filter: blur(2px);
+            border-radius: 18px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+            padding: 2.5rem 2.5rem 2rem 2.5rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s;
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px);}
+            to { opacity: 1; transform: translateY(0);}
+        }
+        .card h2 {
+            margin-top: 0;
+            color: var(--accent);
+            font-size: 1.6rem;
+        }
+        .card p {
+            color: #e0e0e0;
+            font-size: 1.1rem;
+        }
+        .result-img-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 2rem 0;
+        }
+        .result-img-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 16px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.15);
+            background: #fff;
+        }
+        .not-found {
+            background: #fff;
+            color: #333;
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            margin: 2rem auto;
+            max-width: 500px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+        }
+        @media (max-width: 700px) {
+            .intro { font-size: 1.5rem; }
+            .school-name { font-size: 1rem; }
+            .card { padding: 1.2rem 1rem; }
+            nav { gap: 0.7rem; }
+            nav a { font-size: 0.95rem; }
+            main { margin-top: -40px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="hero-content">
+            <div class="intro">WELCOME!</div>
+            <div class="school-name">Dire Beth-el Primary &amp; Secondary School</div>
+            <nav>
+                <a href="#" class="active"><i class="fas fa-home"></i>Home</a>
+                <a href="#"><i class="fas fa-info-circle"></i>About</a>
+                <a href="#"><i class="fas fa-user-plus"></i>Admissions</a>
+                <a href="#"><i class="fas fa-graduation-cap"></i>Academics</a>
+                <a href="#"><i class="fas fa-newspaper"></i>News & Events</a>
+                <a href="#"><i class="fas fa-envelope"></i>Contact</a>
+            </nav>
+            <div class="search-bar-container">
+                <form id="searchForm" class="search-bar-form">
+                    <input type="text" id="searchInput" class="search-bar-input" placeholder="Search student ID, name, or subject...">
+                    <button type="submit" class="search-bar-btn">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </header>
+    <main id="mainContent">
+        <div class="card">
+            <h2>Welcome to Dire Beth-el Primary & Secondary School</h2>
+            <p>
+                Use the search bar above to find student report cards or information.
+            </p>
+        </div>
+    </main>
+    <footer>
+        &copy; 2025 Dire Beth-el Primary &amp; Secondary School. All rights reserved.
+    </footer>
+    <script>
+        // Only keep one search handler!
+        document.getElementById('searchForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const query = document.getElementById('searchInput').value.trim();
+            const normalized = query.replace(/\s+/g, '').toLowerCase();
+            const mainContent = document.getElementById('mainContent');
+            if (normalized === "03-11/027") {
+                mainContent.innerHTML = `
+                    <div class="result-img-container">
+                        <img src="Screenshot 2025-06-01 195816.png" alt="Report Card Screenshot">
+                    </div>
+                `;
+            } else if (normalized === "11/27") {
+                // Redirect to Liban's_Report_Card.html instead of showing an image
+                window.location.href = "Libos_Report_Card.html";
+            } else {
+                mainContent.innerHTML = `
+                    <div class="not-found">
+                        <h2>No Results Found</h2>
+                        <p>Sorry, we couldn't find any student or report card matching "<span style="font-weight:bold">${query}</span>".</p>
+                        <button onclick="window.location.reload()" style="background:#3c59c2;color:#fff;padding:0.7rem 2rem;border:none;border-radius:24px;font-weight:700;cursor:pointer;margin-top:1rem;">Back to Search</button>
+                    </div>
+                `;
+            }
+        });
+    </script>
+</body>
+</html>
